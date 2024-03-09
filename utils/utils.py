@@ -1,6 +1,5 @@
 import os
 import subprocess
-import sys
 import textwrap
 from subprocess import call
 
@@ -17,13 +16,14 @@ def _print(text, color_code):
 class ExecuteTerminalCommand:
     def __init__(self, command, path=os.getcwd()) -> None:
         self.execute_command(command, path)
-
     def add_tab_in_lines(self, output):
         wrapped_output = textwrap.indent(textwrap.fill(output, width=80), "   ")
         return f"{wrapped_output}"
 
     def execute_command(self, command, path):
+        os.chdir(path)
         try:
+            
             result = subprocess.run(
                 command,
                 shell=True,
@@ -37,3 +37,16 @@ class ExecuteTerminalCommand:
         except subprocess.CalledProcessError as e:
             _print(self.add_tab_in_lines(e.stderr), RED)
 
+
+def convert_to_class_name(input_str):
+    words = [word.capitalize() for word in input_str.split('_')]
+    word = ''.join(words)
+    return word if '_' in input_str else input_str[0].upper() + input_str[1:] 
+
+
+def remove_trailing_newlines(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read()
+    modified_content = content.rstrip('\n')
+    with open(file_path, 'w') as file:
+        file.write(modified_content)

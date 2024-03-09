@@ -1,5 +1,5 @@
 from pydantic import types
-from base import Event, EventMeta
+from base import Event
 
 class Fields:
     fieldnames = [attr for attr in dir(types) if not attr.startswith("__")]
@@ -12,8 +12,11 @@ class Fields:
 
 fields = Fields()
 
-from .decorators import event
 
-@event
-class A(Event):
-    pass
+
+# class testeve541nt(Event):
+#     some_field: str = '4'
+#     some: int
+
+# class testeventdc2(Event):
+#     fieldddd: str = '2'

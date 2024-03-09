@@ -17,3 +17,11 @@ class Event(BaseModel):
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     source: str
     serializer_format: str = 'protobuf'
+
+
+class testevent(Event):
+    ...
+
+    
+class testevent2(Event):
+    ...

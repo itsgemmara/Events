@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message testevent {
+  string name = 1;
+  string timestamp = 2;
+  string source = 3;
+  string serializer_format = 4;
+}
+
+message testevent2 {
+  string name = 1;
+  string timestamp = 2;
+  string source = 3;
+  string serializer_format = 4;
+}

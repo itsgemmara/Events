@@ -1,0 +1,15 @@
+namespace Events;
+
+table testevent {
+  name: string;
+  timestamp: string;
+  source: string;
+  serializer_format: string;
+}
+
+table testevent2 {
+  name: string;
+  timestamp: string;
+  source: string;
+  serializer_format: string;
+}
